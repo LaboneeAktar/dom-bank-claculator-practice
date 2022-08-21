@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" name="" id="display" placeholder="0">
+            <input type="button" class="digits" value="C" onclick="ClearAll()">
+            <input type="button" class="digits" value="DEL" onclick="DEL()">
+            <input type="button" class="digits" value="%" onclick="Calculate('%')">
+            <input type="button" class="digits" value="/" onclick="Calculate('/')">
+            <input type="button" class="digits" value="7" onclick="Calculate('7')">
+            <input type="button" class="digits" value="8" onclick="Calculate('8')">
+            <input type="button" class="digits" value="9" onclick="Calculate('9')">
+            <input type="button" class="digits" value="*" onclick="Calculate('*')">
+            <input type="button" class="digits" value="4" onclick="Calculate('4')">
+            <input type="button" class="digits" value="5" onclick="Calculate('5')">
+            <input type="button" class="digits" value="6" onclick="Calculate('6')">
+            <input type="button" class="digits" value="-" onclick="Calculate('-')">
+            <input type="button" class="digits" value="1" onclick="Calculate('1')">
+            <input type="button" class="digits" value="2" onclick="Calculate('2')">
+            <input type="button" class="digits" value="3" onclick="Calculate('3')">
+            <input type="button" class="digits" value="+" onclick="Calculate('+')">
+            <input type="button" class="digits" value="." onclick="Calculate('.')">
+            <input type="button" class="digits" value="0" onclick="Calculate('0')">
+            <input type="button" class="digits" id="equal" value="=" onclick="Answer()">
+        </div>
+    </div>
+
+    <script>
+        var result = document.getElementById('display');
+
+        function ClearAll() {
+            result.value = '';
+        }
+
+        function DEL() {
+            result.value = result.value.slice(0, -1);
+        }
+
+        function Calculate(newValue) {
+            result.value += newValue;
+
+        }
+
+        function Answer() {
+            // var a = document.getElementById('display').value;
+            // var b = eval(a);
+            // document.getElementById('display').value = b;
+
+            try {
+                result.value = eval(result.value)
+            }
+            catch (err) {
+                alert('Enter a valid Input');
+            }
+        }
+    </script>
+</body>
+
+</html>
